@@ -1,16 +1,15 @@
 package org.example.timer;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class HelloController{
+public class Controller {
     /*
     User settings
      */
@@ -27,11 +26,8 @@ public class HelloController{
     private final double secondInterval = 0;
     private final double flash = 0;
 
-    public void initialize(URL location, ResourceBundle resources){
-        if (isWinter){
-
-        }
-    }
+    @FXML
+    private ImageView bombImage;
 
     @FXML
     private Label l;
@@ -41,6 +37,22 @@ public class HelloController{
 
     @FXML
     protected void onHelloButtonClick() {
+
+    }
+
+    public void initialize(){
+        bombImage.setOnMouseDragged(event -> {
+            bombImage.setLayoutX(event.getSceneX() - bombImage.getFitWidth() / 3);
+            bombImage.setLayoutY(event.getSceneY() - bombImage.getFitHeight() / 3);
+        });
+//        if (isWinter){
+//
+//        }
+    }
+    public void startTimer(){
+
+    }
+    public void decreaseTimer(){
 
     }
 }

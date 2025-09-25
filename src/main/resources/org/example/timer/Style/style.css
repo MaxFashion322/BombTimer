@@ -1,0 +1,10 @@
+@font-face{
+    font-family: "Digital7";
+    src: url("/org/example/timer/font/digital_7_mono.ttf");
+}
+
+.image{
+    image-family: "Bomb";
+    src: url("/org/example/timer/sprites/bomb.png");
+    /*-fx-background-color: "bomb_christmas.png";*/
+}
