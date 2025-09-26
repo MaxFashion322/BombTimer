@@ -6,34 +6,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="1080" prefWidth="1920" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.timer.Controller">
+<AnchorPane prefHeight="1177.0" prefWidth="1988.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.timer.Controller">
 
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-   <ImageView fx:id="bombImage"
-              fitHeight="400" fitWidth="400"
-              layoutX="770" layoutY="440"
-              pickOnBounds="true" preserveRatio="true">
-       <image>
-           <Image url="@../Sprites/bomb.png" />
-       </image>
-   </ImageView>
+    <ImageView fx:id="bombImage" fitHeight="400" fitWidth="400" layoutX="770" layoutY="440" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../Sprites/bomb.png" />
+    </ImageView>
 
-<!--   <ImageView fx:id="bomb_christmas.png"-->
-<!--              fitHeight="400" fitWidth="400"-->
-<!--              layoutX="770" layoutY="440"-->
-<!--              pickOnBounds="true" preserveRatio="true">-->
-<!--        <image>-->
-<!--            <Image url="@../Sprites/bomb.png" />-->
-<!--        </image>-->
+    <ImageView fx:id="bombImageChristmas" fitHeight="403.0" fitWidth="400" layoutX="770" layoutY="238.0"
+               pickOnBounds="true" preserveRatio="true">
+        <Image url="@../Sprites/bomb_christmas.png"/>
+    </ImageView>
+
+<!--    <ImageView fx:id="explosion" fitHeight="403.0" fitWidth="400" layoutX="770" layoutY="238.0" pickOnBounds="true"-->
+<!--               preserveRatio="true">-->
+<!--        <Image url="@../Gifs/explosion.gif"/>-->
 <!--    </ImageView>-->
 
-    <Label fx:id="l">
+    <Label fx:id="timerLabel">
       <font>
          <Font name="System Bold" size="36.0" />
       </font>
     </Label>
+
+<!--    <Button fx:id="onRedButtonClick"-->
 
 </AnchorPane>
