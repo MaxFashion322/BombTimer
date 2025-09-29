@@ -12,7 +12,7 @@ import java.io.IOException;
 public class TimerApplication extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/timer/style/bomb-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/timer/Style/bomb-view.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);

@@ -1,37 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="1177.0" prefWidth="1988.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.timer.Controller">
-
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-
-    <ImageView fx:id="bombImage" fitHeight="400" fitWidth="400" layoutX="770" layoutY="440" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../Sprites/bomb.png" />
+<Pane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.timer.Controller" prefHeight="720" prefWidth="1280" style="-fx-background-color: transparent">
+    <ImageView fx:id="bombImage" fitHeight="400" fitWidth="400" onMouseClicked="#startTimer" preserveRatio="true">
+        <Image url="@../Style/Sprites/bomb.png" />
     </ImageView>
 
-    <ImageView fx:id="bombImageChristmas" fitHeight="403.0" fitWidth="400" layoutX="770" layoutY="238.0"
-               pickOnBounds="true" preserveRatio="true">
-        <Image url="@../Sprites/bomb_christmas.png"/>
+    <ImageView fx:id="bombImageChristmas" fitHeight="400" fitWidth="400" onMouseClicked="#startTimer" preserveRatio="true">
+        <Image url="@../Style/Sprites/bomb_christmas.png" />
     </ImageView>
 
-<!--    <ImageView fx:id="explosion" fitHeight="403.0" fitWidth="400" layoutX="770" layoutY="238.0" pickOnBounds="true"-->
-<!--               preserveRatio="true">-->
-<!--        <Image url="@../Gifs/explosion.gif"/>-->
-<!--    </ImageView>-->
+    <ImageView fx:id="explosion" fitHeight="468.0" fitWidth="484.0" preserveRatio="true">
+        <Image url="@../Style/Gifs/explosion.gif" />
+    </ImageView>
 
-    <Label fx:id="timerLabel">
-      <font>
-         <Font name="System Bold" size="36.0" />
-      </font>
+    <Label fx:id="timerLabel" style="-fx-font-size: 42; -fx-text-fill: rgba(255,0,0,0.85);" text="00:00">
+        <font>
+            <Font size="42"/>
+        </font>
     </Label>
-
-<!--    <Button fx:id="onRedButtonClick"-->
-
-</AnchorPane>
+    <!--    <Button fx:id="onRedButtonClick"-->
+</Pane>
