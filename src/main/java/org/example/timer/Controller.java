@@ -4,24 +4,28 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
 import javafx.scene.text.Font;
+
+import javax.sound.sampled.*;
+import java.io.FileNotFoundException;
+import java.net.URL;
 
 public class Controller {
     /*
     User settings
      */
     int initialMinutes = 0;
-    int initialSeconds = 5;
-    boolean isWinter = true;
+    int initialSeconds = 2;
+    boolean isWinter = false;
 
     /*
     Global variables
      */
     int minutes =  0;
-    int seconds = 5;
+    int seconds = 0;
     int flash = 0;
     boolean showTimer = true;
 
@@ -47,7 +51,6 @@ public class Controller {
 
     public void initialize() {
         Font customFont = Font.loadFont(getClass().getResourceAsStream("/org/example/timer/style/font/digital_7_mono.ttf"), 42);
-
         if (customFont != null) {
             timerLabel.setFont(customFont);
         }else
@@ -83,9 +86,8 @@ public class Controller {
         this.seconds = initialSeconds;
         flash = 3;
 
-        updateTimer();
         playAudio("armbomb.wav");
-
+        updateTimer();
 
         if(decrementTimeLine != null){
             decrementTimeLine.stop();
@@ -100,31 +102,24 @@ public class Controller {
 
     private void decreaseTimer() {
         updateTimer();
+
         if (minutes == 0 && seconds <= 10 && seconds > 0) {
             playAudio("beep.wav");
         }
         if (minutes == 0 && seconds == 0){
             setFlashTimer();
-            playAudio("double_beep.wav");
+            playAudio("doublebeep.wav");
             decrementTimeLine.stop();
         }
-        
+
         if (seconds == 0 && minutes > 0){
             minutes--;
             seconds = 59;
         } else if (seconds > 0) {
             seconds--;
-        } else if (minutes == 0 && seconds == 0){
-            bombExplosion();
         }
-    }
-
-    private void playAudio(String fileName){
-        try {
-            AudioClip clip = new AudioClip("/sounds/");
-            clip.play();
-        } catch (Exception e){
-            System.out.println("Error: " + fileName);
+        else if (minutes == 0 && seconds == 0){
+            bombExplosion();
         }
     }
 
@@ -133,9 +128,11 @@ public class Controller {
         timerLabel.setText(text);
     }
 
-    private void bombExplosion(){
-        bombImage.setVisible(false);
-        bombImageChristmas.setVisible(false);
+    private void bombExplosion() {
+//        explosion.setImage(new Image(getClass().getResource("timer/style/gifs/explosion.gif/").toExternalForm()));
+
+        if (bombImage != null) bombImage.setVisible(false);
+        if (bombImageChristmas != null) bombImageChristmas.setVisible(false);
 
         explosion.setVisible(true);
         playAudio("explode.wav");
@@ -160,6 +157,35 @@ public class Controller {
     private static class Delta {
         double x;
         double y;
+    }
+
+    public void testResource(String fileName) {
+        try {
+            var url = getClass().getResource("/org/example/timer/style/sounds/" + fileName);
+            if (url == null) {
+                System.out.println("Файл не найден: " + fileName);
+            } else {
+                System.out.println("Файл найден: " + url.toURI());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void playAudio(String fileName){
+        try {
+            URL soundUrl = getClass().getResource("/org/example/timer/style/sounds/" + fileName);
+            if (soundUrl == null) {
+                throw new FileNotFoundException("Файл не найден: " + fileName);
+            }
+
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/org/example/timer/style/sounds/" + fileName));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
 

@@ -7,15 +7,15 @@
 
 <Pane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.timer.Controller" prefHeight="720" prefWidth="1280" style="-fx-background-color: transparent">
     <ImageView fx:id="bombImage" fitHeight="400" fitWidth="400" onMouseClicked="#startTimer" preserveRatio="true">
-        <Image url="@../Style/Sprites/bomb.png" />
+        <Image url="@sprites/bomb.png" />
     </ImageView>
 
     <ImageView fx:id="bombImageChristmas" fitHeight="400" fitWidth="400" onMouseClicked="#startTimer" preserveRatio="true">
-        <Image url="@../Style/Sprites/bomb_christmas.png" />
+        <Image url="@sprites/bomb_christmas.png" />
     </ImageView>
 
-    <ImageView fx:id="explosion" fitHeight="468.0" fitWidth="484.0" preserveRatio="true">
-        <Image url="@../Style/Gifs/explosion.gif" />
+    <ImageView fx:id="explosion" fitHeight="600" fitWidth="600" preserveRatio="true">
+        <Image url="@gifs/explosion.gif" />
     </ImageView>
 
     <Label fx:id="timerLabel" style="-fx-font-size: 42; -fx-text-fill: rgba(255,0,0,0.85);" text="00:00">
