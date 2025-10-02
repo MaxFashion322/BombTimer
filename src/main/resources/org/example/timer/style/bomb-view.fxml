@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.timer.Controller" prefHeight="720" prefWidth="1280" style="-fx-background-color: transparent">
-    <ImageView fx:id="bombImage" fitHeight="400" fitWidth="400" onMouseClicked="#startTimer" preserveRatio="true">
-        <Image url="@sprites/bomb.png" />
-    </ImageView>
+<Pane prefHeight="1200" prefWidth="1920" style="-fx-background-color: transparent" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.timer.Controller">
+    <Group fx:id="bombGroup" layoutX="800" layoutY="500" >
+        <ImageView fx:id="bombImage" fitHeight="400" fitWidth="400" onMouseClicked="#startTimer" preserveRatio="true">
+            <Image url="@sprites/bomb.png" />
+        </ImageView>
 
-    <ImageView fx:id="bombImageChristmas" fitHeight="400" fitWidth="400" onMouseClicked="#startTimer" preserveRatio="true">
-        <Image url="@sprites/bomb_christmas.png" />
-    </ImageView>
+        <ImageView fx:id="bombImageChristmas" fitHeight="400" fitWidth="400.0" onMouseClicked="#startTimer" preserveRatio="true">
+            <Image url="@sprites/bomb_christmas.png" />
+        </ImageView>
 
-    <ImageView fx:id="explosion" fitHeight="600" fitWidth="600" preserveRatio="true">
+        <Label fx:id="timerLabel" layoutX="144.0" layoutY="125.0" style="-fx-font-family: 'Digital-7 Mono'; -fx-alignment: center; -fx-text-fill: rgba(255,0,0,0.85);" text="00:00" textAlignment="CENTER">
+         <font>
+            <Font size="42.0" />
+         </font></Label>
+    </Group>
+
+    <ImageView fx:id="explosion" layoutX="-300" layoutY="-1600" fitHeight="4000" fitWidth="3000" preserveRatio="true">
         <Image url="@gifs/explosion.gif" />
     </ImageView>
-
-    <Label fx:id="timerLabel" style="-fx-font-size: 42; -fx-text-fill: rgba(255,0,0,0.85);" text="00:00">
-        <font>
-            <Font size="42"/>
-        </font>
-    </Label>
-    <!--    <Button fx:id="onRedButtonClick"-->
 </Pane>

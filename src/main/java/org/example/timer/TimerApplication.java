@@ -16,7 +16,6 @@ public class TimerApplication extends javafx.application.Application {
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
 
         scene.setFill(Color.TRANSPARENT);
         stage.initStyle(StageStyle.TRANSPARENT);
